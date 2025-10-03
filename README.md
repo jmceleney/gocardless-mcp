@@ -21,7 +21,17 @@ This MCP server provides tools to:
 
 ## Installation
 
-### Using pipx (Recommended)
+### Using uvx (Recommended for Claude Code/Cursor)
+
+No installation required - uvx will automatically fetch and run the package:
+
+```bash
+uvx --from git+https://github.com/jmceleney/gocardless-mcp.git gocardless-mcp
+```
+
+Configure in your MCP settings (see configuration examples below).
+
+### Using pipx
 
 ```bash
 pipx install git+https://github.com/jmceleney/gocardless-mcp.git
@@ -93,15 +103,15 @@ Claude Desktop is the easiest way to get started with MCP servers.
 
 ### Claude Code
 
-Claude Code uses a command-line interface for MCP configuration.
+Claude Code works best with uvx for automatic package management.
 
-**Method 1: Using the CLI (Easiest)**
+**Method 1: Using uvx (Recommended)**
 
 ```bash
 claude mcp add gocardless \
   --env GOCARDLESS_ACCESS_TOKEN=your_token_here \
   --env GOCARDLESS_ENVIRONMENT=sandbox \
-  -- gocardless-mcp
+  -- uvx --from git+https://github.com/jmceleney/gocardless-mcp.git gocardless-mcp
 ```
 
 **Method 2: Edit Configuration File Directly**
@@ -113,7 +123,8 @@ Edit `~/.claude.json`:
   "mcpServers": {
     "gocardless": {
       "type": "stdio",
-      "command": "gocardless-mcp",
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/jmceleney/gocardless-mcp.git", "gocardless-mcp"],
       "env": {
         "GOCARDLESS_ACCESS_TOKEN": "your_access_token_here",
         "GOCARDLESS_ENVIRONMENT": "sandbox"
@@ -130,7 +141,7 @@ Edit `~/.claude.json`:
 
 ### Cursor IDE
 
-Cursor supports MCP servers through configuration files.
+Cursor works best with uvx for automatic package management.
 
 **Project-specific configuration** (recommended):
 
@@ -140,7 +151,8 @@ Create `.cursor/mcp.json` in your project root:
 {
   "mcpServers": {
     "gocardless": {
-      "command": "gocardless-mcp",
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/jmceleney/gocardless-mcp.git", "gocardless-mcp"],
       "env": {
         "GOCARDLESS_ACCESS_TOKEN": "your_access_token_here",
         "GOCARDLESS_ENVIRONMENT": "sandbox"
@@ -158,7 +170,8 @@ Create `~/.cursor/mcp.json`:
 {
   "mcpServers": {
     "gocardless": {
-      "command": "gocardless-mcp",
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/jmceleney/gocardless-mcp.git", "gocardless-mcp"],
       "env": {
         "GOCARDLESS_ACCESS_TOKEN": "your_access_token_here",
         "GOCARDLESS_ENVIRONMENT": "sandbox"
