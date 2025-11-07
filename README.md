@@ -2,6 +2,10 @@
 
 A Model Context Protocol (MCP) server for GoCardless API integration, enabling AI assistants to interact with GoCardless payment data.
 
+<a href="https://glama.ai/mcp/servers/@jmceleney/gocardless-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@jmceleney/gocardless-mcp/badge" alt="GoCardless Server MCP server" />
+</a>
+
 ## Features
 
 This MCP server provides tools to:
